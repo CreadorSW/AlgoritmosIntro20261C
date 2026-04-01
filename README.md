@@ -7,8 +7,7 @@
 - Archivos .gbs, .ipynb, etc.
 
 ## *Último update:* 
-#### - Bitácora.
-#### -`clase_algoritmos_pandas.ipynb`, `ejercicio-1-pandas.pdf`, `PM.csv`, `primer-parcial-algoritmos-2025.gbs`]
+#### - Primera clase 💪
 
 
-Última actualización pública: 01-04-2026 18:07:07 zona horaria UTC-03:00
+Última actualización pública: 01-04-2026 18:08:24 zona horaria UTC-03:00
