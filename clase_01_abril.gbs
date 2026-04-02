@@ -1,6 +1,6 @@
 program{
     
-    DibujarCuadradoNegroDeLado3()
+    DibujarCuadrdoDeColor_DeLado_(Rojo, 5)
 }
 
 // Notación Camel Case
@@ -46,8 +46,32 @@ procedure DibujarCuadrdoDeColor_DeLado_(uncolor, unalongitud){
         - unalongitud. Número. La cantidad de bolitas que forman un lado.
     */
     
+    repeat(unalongitud-1){
+        DibujarLineaDeColor_DeLongitud_(uncolor, unalongitud)
+        Mover(Norte)
+    }
+    DibujarLineaDeColor_DeLongitud_(uncolor, unalongitud)
+    
+repeat(unalongitud-1){
+    Mover(Sur)
+}
+    //Mover(Sur)
+    //Mover(Sur)
     
     
+    
+}
+
+procedure DibujarLineaDeColor_DeLongitud_(uncolor, unalongitud){
+    repeat(unalongitud-1){
+        Poner(uncolor)
+        Mover(Este)
+    }
+    Poner(uncolor) // Caso borde
+    
+    repeat(unalongitud-1){
+        Mover(Oeste)
+    }
     
 }
 
