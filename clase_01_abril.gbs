@@ -1,0 +1,53 @@
+program{
+    
+    DibujarCuadradoNegroDeLado3()
+}
+
+// Notación Camel Case
+procedure DibujarCuadradoNegroDeLado3() {
+    
+    /*
+    PROPÓSITO: Dibuja un cuadrado negro (lleno) de lado 3 comenzando en la esquina inferior izquierda del mismo. Deja el cabezal donde comenzó.
+    PRECONDICIONES:  Debe haber al menos 3 celdas al norte y al este del cabezal.
+    */
+    
+    repeat(2){
+        DibujarLineaNegraHorizontalDeLongitud3()
+        Mover(Norte)
+    }
+    DibujarLineaNegraHorizontalDeLongitud3()
+    Mover(Sur)
+    Mover(Sur)
+    
+    
+}
+
+
+procedure DibujarLineaNegraHorizontalDeLongitud3(){
+    
+    repeat(2){
+        Poner(Negro)
+        Mover(Este)
+    }
+    Poner(Negro) // Caso borde
+    
+    repeat(2){
+        Mover(Oeste)
+    }
+    
+}
+
+procedure DibujarCuadrdoDeColor_DeLado_(uncolor, unalongitud){
+    /*
+    PROPÓSITO: Dibuja cun cuadrado de color *uncolor* y lado *unalongitud* comenzando en la esquina inferior izquierda del mismo. Deja el cabezal donde comenzó.
+    PRECONDICIONES: Debe haber al menos *unalongitud* celdas al norte y al este del cabezal.
+    PARÁMETROS: 
+        - uncolor. Color. El color del cuadrado.
+        - unalongitud. Número. La cantidad de bolitas que forman un lado.
+    */
+    
+    
+    
+    
+}
+
