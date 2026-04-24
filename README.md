@@ -7,7 +7,8 @@
 - Archivos .gbs, .ipynb, etc.
 
 ## *Último update:* 
-#### - Bitácora al 15/04/26.
+#### - Bitácora al 22/04/26.
+#### - Leer bitácora.
 
 
-Última actualización pública: 22-04-2026 21:28:33 zona horaria UTC-03:00
+Última actualización pública: 24-04-2026 14:04:10 zona horaria UTC-03:00

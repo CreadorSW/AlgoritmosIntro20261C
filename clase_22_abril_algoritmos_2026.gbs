@@ -1,13 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head profile="http://www.w3.org/2005/10/profile">
-<link rel="icon" 
-      type="image/png" 
-      href="favicon.png">
-</head>
-<body>
-	<script>
-		window.location.replace("https://gobstones.github.io/gobstones-web/#/code" + window.location.search);
-	</script>
-</body>
-</html>
+program{
+	//return(hayBolitas)
+	//return(nroBolitas)
+}
+
+function nroDeBolitasDeColor_ADistancia_Al(color, unaDistancia, direccion){
+
+	/*
+	PROPÓSITO:
+	PRECONDICIONES:
+	PARÁMETROS:
+	TIPO:
+	*/
+
+
+}
+
+function nroDeBolitasDeColor_ADistancia_Al_SiSePuede(color, unaDistancia, direccion){
+	/*
+	PROPÓSITO:
+	PRECONDICIONES:
+	PARÁMETROS:
+	TIPO:
+	*/
+}
+
+function PuedeMover_Al_(distancia, direccion){
+	/*
+	PROPÓSITO:
+	PRECONDICIONES:
+	PARÁMETROS:
+	TIPO:
+	*/
+
+}
+
+
