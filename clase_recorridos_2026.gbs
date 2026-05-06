@@ -1,9 +1,36 @@
+program{
+
+    //IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    RecorrerTableroAl_Y_(Este,Norte)
+}
+
+
+/*
+TAREA
+function contarRojas(){
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    while (haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    }
+}
+*/
+
+
+procedure RecorrerTableroAl_Y_(dirPrincipal, dirSecundaria){
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria)
+    //VaciarCelda()
+    while (haySiguienteCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria)){
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria)
+    }
+}
+
 # LAS SUBTAREAS MÁS ÚTILES DE LA HISTORIA
 
 
 procedure IrAPrimeraCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria){
     /*
-    Básicamente lleva el cabezal a la esquina opuesta de las 
+    Básicamente lleva el cabezal a la esquina opuesta de las
     direcciones.
     PROPÓSITO:  Posiciona el cabezal en la primer celda de un
     recorrido     al **dirPrincipal** y al **dirSecundaria**
@@ -46,7 +73,7 @@ procedure IrASiguienteCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria){
         recorrido.
         *dirSecundaria: Dirección. La dirección principal del
         recorrido.
-    PRECONDICIONES: 
+    PRECONDICIONES:
         * Las direcciones no deben ser opuestas ni iguales.
         * Debe haber al menos una celda en la dirección
         **dirPrincipal** o  **dirSecundaria**
