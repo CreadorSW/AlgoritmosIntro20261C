@@ -1,0 +1,88 @@
+/*
+program{
+    Test()
+    IntercambiarEstrellaPorCírculoAlEste()
+}
+
+procedure Test(){
+    PonerEstrella()
+    Mover(Este)
+    PonerCirculo()
+    Mover(Oeste)
+    
+}
+
+*/
+
+procedure IntercambiarEstrellaPorCírculoAlEste(){
+
+/*
+PROPÓSITO:
+Intercambia una  “estrella” en la celda actual, por una con aquella ficha “círculo” en la celda lindante al Este. 
+Puede asumir que hay una estrella en la celda actual y un círculo en la celda lindante al Este.
+
+PRECONDICIONES:
+Debe haber una estrella en la celda actual
+
+*/
+    SacarEstrella()
+    PonerCirculo()
+    Mover(Este)
+    SacarCirculo()
+    PonerEstrella()
+
+
+}
+
+procedure SacarEstrella(){
+/*
+PROPÓSITO: Saca una estrella de la celda actual (saca 1 bolita negra y 5 azules)
+PRECONDICIONES: Debe haber una estrella en al celda actual
+*/
+    
+    Sacar(Negro)
+    repeat(5){
+        Sacar(Azul)
+    }
+    
+}
+
+procedure PonerCirculo(){
+/*
+PROPÓSITO: Pone un círculo en la celda actual (pone 1 bolita negra y 2 azules)
+PRECONDICIONES: Ninguna.
+*/
+    
+    Poner(Negro)
+    repeat(2){
+        Poner(Azul)
+    }
+    
+}
+
+procedure SacarCirculo(){
+/*
+PROPÓSITO: Saca un círculo en la celda actual (pone 1 bolita negra y 2 azules)
+PRECONDICIONES: Debe haber un círculo en la celda actual.
+*/
+    
+    Sacar(Negro)
+    repeat(2){
+        Sacar(Azul)
+    }
+    
+}
+
+procedure PonerEstrella(){
+/*
+PROPÓSITO: Pone una estrella en la celda actual (pone 1 bolita negra y 2 azules)
+PRECONDICIONES: Ninguna.
+*/
+    
+    Poner(Negro)
+    repeat(5){
+        Poner(Azul)
+    }
+    
+}
+
