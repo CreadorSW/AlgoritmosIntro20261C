@@ -5,16 +5,23 @@ program{
 }
 
 
-/*
-TAREA
 function contarRojas(){
+    /*
+    PROPÓSITO: Cuenta la cantidad de bolitas rojas presentes en el tablero.
+    PRECONDICIONES: Ninguna.
+    TIPO: Número.
+
+    */
+    contadorDeRojas := 0
     IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
     while (haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
-
+        contadorDeRojas:= contadorDeRojas + nroBolitas(Rojo)
         IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
     }
+    // caso borde
+    contadorDeRojas:= contadorDeRojas + nroBolitas(Rojo)
+    return (contadorDeRojas)
 }
-*/
 
 
 procedure RecorrerTableroAl_Y_(dirPrincipal, dirSecundaria){

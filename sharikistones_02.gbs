@@ -1,0 +1,39 @@
+procedure RellenarEstaColumnaConObstaculos(){
+    /*
+    PROPÓSITO:  transforma todas las ubicaciones de la columna, donde
+está nuestro cabezal, en obstáculos en un tablero de 6x6.
+    PRECONDICIONES: en todas las posiciones
+a colocar estos obstáculos, tenemos fichas
+    */
+    IrAlBorde(Sur)
+    while (puedeMover(Norte)){
+        RemoverFichaAqui()
+        PonerObstaculo()
+        Mover(Norte)
+    }
+    RemoverFichaAqui()
+    PonerObtaculo()
+}
+
+procedure IntercambiarEstrellaPorCirculoDesdeEl_ADistancia_(unaDireccion, unaDistancia){
+    /*
+    PROPÓSITO: Saca la ficha Estrella de la ubicación actual y coloca una de Circulo. Luego saca la ficha de Circulo en la celda a *unaDistancia* en dirección *unaDireccion* y coloca una Estrella.  
+    PRECONDICIONES: Debe haber una ficha Estrela en la ubicación actual y una ficha Circulo en la celda a *unaDistancia* en dirección *unaDireccion*.
+    */
+    RemoverFichaAqui()
+    PonerCirculo()
+    repeat(unaDistancia){
+        Mover(unaDireccion)
+    }
+    RemoverFichaAqui()
+    PonerEstrella()
+}
+
+
+
+
+
+
+
+
+
