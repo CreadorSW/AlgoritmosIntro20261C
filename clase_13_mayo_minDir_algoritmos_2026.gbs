@@ -1,0 +1,177 @@
+program{
+    //MarcarOrbitaOrtogonalDeColor_(Azul)
+    //MarcarOrbitaDeColor_(Azul)
+    IrHastaLaQueTengaUnaDeCada()
+}
+
+procedure MarcarOrbitaOrtogonalDeColor_(unColor){
+    /*
+    PROPÓSITO: Coloca una bolita de color *unColor* en las celdas adyacentes al cabezal en las direcciones ortogonales.
+    PRECONDICIONES: Debe haber al menos una celda libre en cada dirección respecto de la celda actual.
+    
+    */
+    direccionActual := minDir()
+    while (direccionActual /= maxDir()){
+        PonerBolitaDeColor_Al_(unColor, direccionActual)
+        direccionActual := siguiente(direccionActual)
+    }
+    PonerBolitaDeColor_Al_(unColor, direccionActual)
+}
+
+procedure PonerBolitaDeColor_Al_(color, direccion){
+    /*
+    PROPÓSITO: Coloca una bolita de color *color* en la celda adyacente al *direccion* a la celda actual dejando el cabezal en la celda de inicio.
+    PRECONDICIONES: Debe haber al menos una celda al *direccion* respecto de la celda actual.
+    */
+    
+    
+    Mover(direccion)
+    Poner(color)
+    Mover(opuesto(direccion))
+}
+
+
+procedure MarcarOrbitaDeColor_(unColor){
+    /*
+    PROPÓSITO: Coloca una bolita de color *unColor* en todas las celdas adyacentes al cabezal en las direcciones ortogonales y diagonales.
+    PRECONDICIONES: Debe haber al menos una celda libre en cada dirección respecto de la celda actual.
+    */
+    
+    direccionActual := minDir()
+    while (direccionActual /= maxDir()){
+        MarcarParteDeOrbitaConColor_Al_(unColor, direccionActual)
+        direccionActual := siguiente(direccionActual)
+    }
+    MarcarParteDeOrbitaConColor_Al_(unColor, direccionActual)
+    
+    
+}
+
+
+
+procedure MarcarParteDeOrbitaConColor_Al_(color, direccion){
+    /*
+    PROPÓSITO: Coloca una bolita de color *color* en la celda adyacente al cabezal en dirección *direccion* y luego otra en la dirección siguiente a *direccion*.
+    PRECONDICIONES: Debe haber al menos una celda libre hacia el *direccion* y otra en la dirección siguiente adyacente a esa.
+    
+    */
+    Mover(direccion)
+    Poner(color)
+    Mover(siguiente(direccion))
+    Poner(color)
+    RetornarALInicio(direccion)
+    
+}
+
+
+procedure RetornarALInicio(direccion){
+    
+    /*
+    PROPÓSITO: Devuelve el cabezal al inicio del completado de una parte de una órbita.
+    PRECONDICIONES: El cabezal tiene que poder dibuja la parte de órbita de la cual se está volviendo.
+    
+    */
+    
+    Mover(opuesto(siguiente(direccion)))
+    Mover(opuesto(direccion))
+    
+}
+
+
+// ===============================================
+//EJERCICIO 5.3 10 
+// ===============================================
+
+procedure IrHastaLaQueTengaUnaDeCada(){
+    /*
+    PROPÓSITO: Recorre el tablero y se detiene al encontrar la primera celda que contiene exactamente una bolita de cada color.
+    PRECONDICIONES: Ninguna
+    */
+    
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    while(not hayUnaDeCadaColor()){
+       IrASiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte) 
+    }
+    
+}
+
+
+
+function hayUnaDeCadaColor(){
+    /*
+    PROPÓSITO: Indica si en la celda actual hay exactamente una bolita de cada color
+    PRECONDICIONES: Ninguna
+    TIPO: Booleano.
+    
+    */
+    
+    return (nroBolitas(Azul) == 1 && nroBolitas(Rojo) == 1 && nroBolitas(Negro) ==1 && nroBolitas(Verde) ==1)
+    
+    
+}
+
+
+
+procedure IrAPrimeraCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria){
+    /*
+    Básicamente lleva el cabezal a la esquina opuesta de las
+    direcciones.
+    PROPÓSITO:  Posiciona el cabezal en la primer celda de un
+    recorrido     al **dirPrincipal** y al **dirSecundaria**
+    PARÁMETROS:
+        *dirPrincipal: Dirección. La dirección principal del
+        recorrido.
+        *dirSecundaria: Dirección. La dirección principal del
+        recorrido.
+    PRECONDICIONES: Las direcciones no deben ser opuestas ni
+    iguales.
+    OBSERVACIONES: la primer celda es la esquina opuesta a
+    **dirPrincipal** y **dirSecundaria**.
+    */
+    IrAlBorde(opuesto(dirPrincipal))
+    IrAlBorde(opuesto(dirSecundaria))
+}
+
+function haySiguienteCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria){
+    /*
+    PROPÓSITO: Indica si hay una celda al **dirPrincipal** o al
+    **dirSecundaria**
+    PARÁMETROS:
+        *dirPrincipal: Dirección. La dirección principal de
+        l recorrido.
+        *dirSecundaria: Dirección. La dirección principal del
+        recorrido.
+    PRECONDICIONES:Las direcciones no deben ser opuestas ni
+    iguales.
+    TIPO: Booleano.
+    */
+    return(puedeMover(dirPrincipal) || puedeMover(dirSecundaria))
+}
+
+procedure IrASiguienteCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria){
+    /*
+    PROPÓSITO: Ir a la siguiente celda de un recorrido
+    al **dirPrincipal** y al **dirSecundaria**
+    PARÁMETROS:
+        *dirPrincipal: Dirección. La dirección principal del
+        recorrido.
+        *dirSecundaria: Dirección. La dirección principal del
+        recorrido.
+    PRECONDICIONES:
+        * Las direcciones no deben ser opuestas ni iguales.
+        * Debe haber al menos una celda en la dirección
+        **dirPrincipal** o  **dirSecundaria**
+    */
+    if (puedeMover(dirPrincipal)){
+        Mover(dirPrincipal)
+    }else{
+        IrAlBorde(opuesto(dirPrincipal))
+        Mover(dirSecundaria)
+    }
+}
+
+
+
+
+
+
