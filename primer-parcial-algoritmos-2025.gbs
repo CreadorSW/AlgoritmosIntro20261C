@@ -1,0 +1,201 @@
+program {
+    //ComerPiezaNegraConTorreHacia_(Norte)
+    //return (unoSiHayPieza(torre()))
+    //return(unoSiHayPieza_DeColor_(torre(), negro()))
+    return(cantidadDePiezas_DeColor_(torre(),negro() ))
+}
+
+function blanco(){
+    return(Verde)
+}
+
+function negro(){
+    return(Negro)
+}
+
+
+function hayPiezaNegra(){
+    /*
+    PROPÓSITO:
+    PRECONDICIONES:
+    PARÁMETROS:
+    */
+    return (nroBolitas(Negro) ==1)
+}
+
+
+procedure SacarTorreBlanca(){
+    /*
+    PROPÓSITO:
+    PRECONDICIONES:
+    PARÁMETROS:
+    */
+    Sacar_DeColor_(5, Verde)
+}
+
+procedure PonerTorreBlanca(){
+    /*
+    PROPÓSITO:
+    PRECONDICIONES:
+    PARÁMETROS:
+    */
+    Poner_DeColor_(5, Verde)
+}
+
+procedure ComerPiezaNegra(){
+    /*
+    PROPÓSITO:
+    PRECONDICIONES: El cabezal se encuentra sobre una pieza negra.
+    PARÁMETROS:
+    */
+    Sacar(Negro)
+    Sacar_DeColor_(nroBolitas(Verde), Verde)
+
+
+}
+
+procedure Poner_DeColor_(cantidad, color){
+    /*
+    PROPÓSITO
+    PRECONDICIONES
+    PARÁMETROS
+    */
+    repeat(cantidad){
+        Poner(color)
+    }
+}
+
+procedure Sacar_DeColor_(cantidad, color){
+    /*
+    PROPÓSITO
+    PRECONDICIONES
+    PARÁMETROS
+    */
+    repeat(cantidad){
+        Sacar(color)
+    }
+}
+
+procedure ComerPiezaNegraConTorreHacia_(direccion){
+    /*
+    PROPÓSITO: come la pieza negra más próxima a la
+celda actual hacia **direccion**, dejando la torre en dicha celda.
+    PRECONDICIONES: El cabezal debe estar posicionado sobre una torre blanca y debe haber una pieza negra hacia **direccion**.
+    PARÁMETROS: direccion. Dirección. La dirección hacia la cual se va a desplazar la torre.
+    */
+    SacarTorreBlanca()
+    while (not hayPiezaNegra() && puedeMover(direccion)){
+        Mover(direccion)
+    }
+    ComerPiezaNegra()
+    PonerTorreBlanca()
+}
+
+
+// ===========================================================
+
+
+
+
+function peon(){
+    return (1)
+}
+
+function torre(){
+    return (5)
+}
+
+function unoSiHayPieza_Blanca(pieza){
+
+    return (choose
+      1 when (nroBolitas(Verde)==pieza && not hayBolitas(Negro))
+      0 otherwise
+    )
+}
+
+function unoSiHayPieza_Negra(pieza){
+    return (choose
+      1 when (nroBolitas(Verde)==pieza && nroBolitas(Negro) == 1)
+      0 otherwise
+    )
+}
+
+function unoSiHayPieza_DeColor_(pieza, color){
+    return (choose
+    unoSiHayPieza_Blanca(pieza) when (color == blanco())
+    unoSiHayPieza_Negra(pieza) when (color == negro())
+    0 otherwise
+    )
+
+}
+
+
+
+function cantidadDePiezas_DeColor_(pieza, color){
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    cantidadDePiezas:= unoSiHayPieza_DeColor_(pieza, color)
+    while (haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+        cantidadDePiezas := cantidadDePiezas + unoSiHayPieza_DeColor_(pieza, color)
+
+    }
+    return(cantidadDePiezas)
+
+}
+
+procedure IrAPrimeraCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria){
+    /*
+    PROPÓSITO:  Posiciona el cabezal en la primer celda de un
+    recorrido     al **dirPrincipal** y al **dirSecundaria**
+    PARÁMETROS:
+        *dirPrincipal: Dirección. La dirección principal del
+        recorrido.
+        *dirSecundaria: Dirección. La dirección principal del
+        recorrido.
+    PRECONDICIONES: Las direcciones no deben ser opuestas ni
+    iguales.
+    OBSERVACIONES: la primer celda es la esquina opuesta a
+    **dirPrincipal** y **dirSecundaria**.
+    */
+    IrAlBorde(opuesto(dirPrincipal))
+    IrAlBorde(opuesto(dirSecundaria))
+}
+
+function haySiguienteCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria){
+    /*
+    PROPÓSITO: Indica si hay una celda al **dirPrincipal** o al
+    **dirSecundaria** respecto de la celda actual.
+    PARÁMETROS:
+        *dirPrincipal: Dirección. La dirección principal de
+        l recorrido.
+        *dirSecundaria: Dirección. La dirección principal del
+        recorrido.
+    PRECONDICIONES:Las direcciones no deben ser opuestas ni
+    iguales.
+    TIPO: Booleano.
+    */
+    return(puedeMover(dirPrincipal) || puedeMover(dirSecundaria))
+}
+
+procedure IrASiguienteCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria){
+    /*
+    PROPÓSITO: Ir a la siguiente celda de un recorrido
+    al **dirPrincipal** y al **dirSecundaria**
+    PARÁMETROS:
+        *dirPrincipal: Dirección. La dirección principal del
+        recorrido.
+        *dirSecundaria: Dirección. La dirección principal del
+        recorrido.
+    PRECONDICIONES:
+        * Las direcciones no deben ser opuestas ni iguales.
+        * Debe haber al menos una celda en la dirección
+        **dirPrincipal** o  **dirSecundaria**
+    */
+    if (puedeMover(dirPrincipal)){
+        Mover(dirPrincipal)
+    }
+    else{
+        IrAlBorde(opuesto(dirPrincipal))
+        Mover(dirSecundaria)
+    }
+}
