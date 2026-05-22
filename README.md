@@ -7,8 +7,7 @@
 - Archivos .gbs, .ipynb, etc.
 
 ## *Último update:* 
-#### - Bitácora al 06/05/26.
-#### - Leer bitácora.
+#### - Bitácora al 20/05/26.
+#### - Ejercicio integrador señales de telecomunicaciones T1.
 
-
-Última actualización pública: 22-05-2026 17:03:42 zona horaria UTC-03:00
+Última actualización pública: 22-05-2026 17:08:32 zona horaria UTC-03:00
