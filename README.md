@@ -6,7 +6,10 @@
 - Bitácora
 - Archivos .gbs, .ipynb, etc.
 
-## *Último update:*
+## *Update 01/07/26*
+#### - Se actualizó la redacción de la consigna del parcial 2.
+
+## *Update del martes 30/06/26*
 - `fusionado_encuesta2026_lab2025.xlsx`
 
 ## *Update anterior:*
@@ -15,4 +18,4 @@
 	- `parcial2_enunciado_algoritmos_1C2026.ipynb`
 	- `encuesta_laboratorio_algoritmos_1C2026_2606_v1.xlsx`.
 
-Última actualización pública: 30-06-2026 12:18:06 zona horaria UTC-03:00
+Última actualización pública: 01-07-2026 21:38:47 zona horaria UTC-03:00
